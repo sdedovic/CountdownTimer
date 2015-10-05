@@ -1,16 +1,19 @@
 'use strict';
 
 $(document).ready(function () {
-    var num = 45;
-    var timer = $('#timer');
-    var tick = function tick() {
-        if (num > 0) {
-            num = num - 1;
-            timer.text(num);
-        } else {
-            timer.replaceWith('<iframe width="560" height="315" src="https://www.youtube.com/embed/EyoutEHpPAU?autoplay=1" frameborder="0" allowfullscreen></iframe>');
-            clearInterval(counter);
-        }
-    };
-    var counter = setInterval(tick, 1000);
+    $('#start').on('click', function () {
+        var num = 45;
+        var timer = $('#timer');
+        var number = $('#number');
+        var tick = function tick() {
+            if (num > 1) {
+                num = num - 1;
+                number.text(num);
+            } else {
+                timer.replaceWith('<p class="text-center"><a href="/">Again?</a></p>\n<iframe width="100%" height="90%" src="https://www.youtube.com/embed/EyoutEHpPAU?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+                clearInterval(counter);
+            }
+        };
+        var counter = setInterval(tick, 1000);
+    });
 });
